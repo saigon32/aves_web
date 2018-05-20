@@ -3,7 +3,11 @@ package ias.aves.web.dao;
 import java.util.List;
 
 import ias.aves.web.modelo.TontAve;
-
+/**
+ * 
+ * @author User
+ *
+ */
 public interface IAveDao {
 
 	public void ingresarAve(TontAve ave);
