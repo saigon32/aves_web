@@ -39,7 +39,7 @@ public class AvesServicio {
 		return zonaDao.listarAvesZona(dsnombre);
 	}
 
-//	@Transactional
+	@Transactional
 	@RequestMapping(value = "/ingresarAve", method = RequestMethod.GET)
 	public void ingresarAve(@RequestParam(value = "cdave", required = true) String cdave, @RequestParam(value = "dsnombreComun", required = true) String dsnombreComun, @RequestParam(value = "dsnombreCientifico", required = true) String dsnombreCientifico) throws Exception {
 		TontAve tontAve = new TontAve();
