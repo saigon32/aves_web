@@ -1,0 +1,33 @@
+package ias.aves.web.controladores;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/springservicecontroller")
+public class SpringServiceController {
+	// @RequestMapping(value = "/{name}", method = RequestMethod.GET, produces =
+	// "text/html")
+	// public String getGreeting(@PathVariable String name) {
+	// String result = "Hello " + name;
+	// return result;
+	// }
+
+	@RequestMapping(value = "/listarAves", method = RequestMethod.GET, headers = "Accept=application/json")
+	@ResponseBody
+	public Map<String, String> listarAves() {
+		Map<String, String> listaAves = new HashMap<String>();
+		listaAves.add("mirla");
+		listaAves.add("pinche");
+		listaAves.add("barranquero");
+		listaAves.add("sinsonte");
+		listaAves.add("toche");
+		listaAves.add("garrapatero");
+		return listaAves;
+	}
+}

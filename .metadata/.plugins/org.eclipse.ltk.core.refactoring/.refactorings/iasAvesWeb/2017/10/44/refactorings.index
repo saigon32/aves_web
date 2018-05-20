@@ -1,0 +1,53 @@
+1508992492617	Delete element
+1508992693296	Rename package 'controladores'
+1508992717852	Rename package 'dao.implementacion'
+1508992734873	Rename package 'dao'
+1508992768667	Delete element
+1508992949408	Delete element
+1508992958457	Rename resource 'spring-web-3.0.6.RELEASE.jar.zip'
+1508993229257	Delete element
+1508993726888	Delete element
+1508993910594	Rename resource 'org.springframework.beans_3.1.4.release.jar.zip'
+1508994181442	Delete element
+1508994550164	Delete element
+1508994598704	Delete element
+1508994915492	Delete element
+1508999465215	Rename resource 'rest-servlet.xml'
+1508999491319	Move 'web-application-config.xml' to 'config'
+1509002975609	Infer generic type arguments
+1509005022469	Copy file
+1509005043999	Rename resource 'web-application-config.xml'
+1509007441104	Delete element
+1509045279476	Rename resource 'mysql-connector-java-5.1.44-bin.jar'
+1509045337240	Delete element
+1509049629254	Delete element
+1509053135711	Rename resource 'slf4j-1.7.25.zip'
+1509053233567	Delete element
+1509053638629	Delete element
+1509062227914	Rename package 'ias.aves.web.dao.IAveDao'
+1509071124744	Move 'index.jsp' to 'WEB-INF'
+1509071173062	Move 'index.jsp' to 'WebContent'
+1509074603315	Delete element
+1509077452657	Move 'index.jsp' to 'view'
+1509078083050	Delete element
+1509078424442	Copy file
+1509078868738	Delete element
+1509079992317	Copy file
+1509081753656	Rename resource 'index.jsp'
+1509081797223	Delete element
+1509083949262	Rename resource 'hellopage.jsp'
+1509083975229	Delete element
+1509084004800	Rename package 'ias.aves.web.controladores'
+1509084062675	Rename type 'AvesControlador'
+1509084350451	Delete element
+1509084397639	Delete element
+1509084427690	Rename resource 'paginaAves.jsp'
+1509084445941	Copy file
+1509086620870	Copy file
+1509095303817	Delete element
+1509095308774	Delete element
+1509096615321	Copy file
+1509097147823	Copy compilation unit
+1509097406017	Copy compilation unit
+1509100655769	Delete element
+1509100677466	Copy file

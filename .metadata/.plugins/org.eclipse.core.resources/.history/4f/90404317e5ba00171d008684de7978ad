@@ -1,0 +1,7 @@
+iasAvesWeb.registerCtrl('consultaAves', [ '$scope', '$http', '$rootScope',
+		function($scope, $http, $rootScope) {
+		} ]);
+
+angular.module('iasAvesWeb', []).controller('consultaAves',
+		[ '$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+		} ]);

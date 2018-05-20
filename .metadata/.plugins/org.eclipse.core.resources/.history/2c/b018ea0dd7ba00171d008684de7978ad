@@ -1,0 +1,5 @@
+package ias.aves.web.controladores;
+
+public class HelloWorldController {
+
+}

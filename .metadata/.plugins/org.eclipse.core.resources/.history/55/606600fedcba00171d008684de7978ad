@@ -1,0 +1,106 @@
+package ias.aves.web.servicios;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
+
+import com.mysql.jdbc.Statement;
+
+/**
+ * Servlet implementation class ServletDemoConexionMySQL
+ */
+@WebServlet("/ServletDemoConexionMySQL")
+public class ServletDemoConexionMySQL extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public ServletDemoConexionMySQL() {
+		super();
+	}
+
+	public Connection getConnection() {
+		Connection connection = null;
+		try {
+			Context initCtx = new InitialContext();
+			Context envCtx = (Context) initCtx.lookup("java:comp/env");
+			DataSource dataSource = (DataSource) envCtx.lookup("jdbc/ornitologia");
+			connection = dataSource.getConnection();
+			System.err.println("jndi " + connection);
+		} catch (Exception exception) {
+			exception.printStackTrace();
+			System.err.println(
+					"Error recuperando el pool de base de datos, mediante la variable JNDI=jdbc/ornitologia, favor comunicarse con el administrador de la aplicacion");
+		}
+		return connection;
+	}
+
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// String login = "root";
+		// String password = "root";
+		String url = "jdbc:mysql://localhost:3306/ornitologia";
+		Connection conn = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			// conn = DriverManager.getConnection(url, login, password);
+			conn = getConnection();
+			if (conn != null) {
+				System.out.println("Conexión a base de datos " + url + " ... Ok");
+				Statement s = (Statement) conn.createStatement();
+				s.executeQuery("SELECT cdave, dsnombre_comun, dsnombre_cientifico FROM tont_aves");
+				ResultSet rs = s.getResultSet();
+				int count = 0;
+				while (rs.next()) {
+					String cdave = rs.getString("cdave");
+					String dsnombre_comun = rs.getString("dsnombre_comun");
+					String dsnombre_cientifico = rs.getString("dsnombre_cientifico");
+					System.out.println("cdave = " + cdave + ", dsnombre_comun = " + dsnombre_comun
+							+ ", dsnombre_cientifico = " + dsnombre_cientifico);
+					++count;
+				}
+				rs.close();
+				s.close();
+				System.out.println(count + " rows were retrieved");
+				conn.close();
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.out.println("Hubo un problema al intentar conectarse con la base de datos " + url);
+		} catch (ClassNotFoundException ex) {
+			System.out.println(ex);
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+}

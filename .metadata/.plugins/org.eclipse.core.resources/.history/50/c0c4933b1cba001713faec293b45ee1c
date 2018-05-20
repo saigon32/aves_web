@@ -1,0 +1,31 @@
+package ias.aves.web.controladores;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/service/greeting")
+public class SpringServiceController {
+	@RequestMapping(value = "/{name}", method = RequestMethod.GET, produces = "text/html")
+	public String getGreeting(@PathVariable String name) {
+		String result = "Hello " + name;
+		return result;
+	}
+
+	@RequestMapping("/listarAves")
+	public List<String> listarAves(@PathVariable String name) {
+		List<String> listaAves = new ArrayList<String>();
+		listaAves.add("");
+		listaAves.add("");
+		listaAves.add("");
+		listaAves.add("");
+		listaAves.add("");
+		listaAves.add("");
+		return listaAves;
+	}
+}

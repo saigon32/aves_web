@@ -1,0 +1,74 @@
+package ias.aves.web.dao.implementacion;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import ias.aves.web.dao.IAveDao;
+import ias.aves.web.modelo.TontAve;
+import ias.aves.web.modelo.TontZona;
+
+@Repository
+@Transactional
+public class ZonaDao implements IAveDao {
+
+	@PersistenceContext
+	EntityManager entityManager;
+
+	@Override
+	public void ingresarZona(TontZona zona) {
+		this.entityManager.persist(zona);
+	}
+
+	@Override
+	public void actualizarAve(TontZona zona) {
+		this.entityManager.merge(zona);
+
+	}
+
+	@Override
+	public void eliminarZona(String cdzona) {
+		TontZona zona = this.find(cdzona);
+		this.entityManager.remove(zona);
+	}
+
+	public TontAve find(String cdave) {
+		return this.entityManager.find(TontAve.class, cdave);
+	}
+
+	@Override
+	public TontAve obtenerAve(String cdave) {
+		Query query = entityManager.createNamedQuery("TontAve.findByCdave");
+		TontAve ave = (TontAve) query.setParameter("cdave", cdave).getResultList().get(0);
+		return ave;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<TontAve> listarAves() {
+		Query query = entityManager.createQuery("from TontAve");
+		List<TontAve> listaAves = (List<TontAve>) query.getResultList();
+		return listaAves;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<TontAve> listarAvesNombre(String dsnombreComun, String dsnombreCientifico) {
+		List<TontAve> listaAves = null;
+		try {
+			StringBuilder hql = new StringBuilder();
+			hql.append("from TontAve as a where a.dsnombreComun like :dsnombreComun or a.dsnombreCientifico like :dsnombreCientifico");
+			Query query = entityManager.createQuery(hql.toString());
+			query.setParameter("dsnombreComun", "%" + dsnombreComun + "%");
+			query.setParameter("dsnombreCientifico", "%" + dsnombreCientifico + "%");
+			listaAves = (List<TontAve>) query.getResultList();
+		} catch (Exception exception) {
+			throw exception;
+		}
+		return listaAves;
+	}
+
+}

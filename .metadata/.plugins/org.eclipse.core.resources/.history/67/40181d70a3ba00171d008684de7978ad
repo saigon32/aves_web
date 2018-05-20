@@ -1,0 +1,61 @@
+package ias.aves.web.dao.implementacion;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+import ias.aves.web.dao.IAveDao.IAveDao;
+import ias.aves.web.modelo.TontAve;
+
+@Transactional
+public class AveDao implements IAveDao {
+
+	@Autowired
+	private EntityManager entityManager;
+
+	@PersistenceContext
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+	@Override
+	public void ingresarAve(TontAve ave) {
+		this.entityManager.persist(ave);
+	}
+
+	@Override
+	public void actualizarAve(TontAve ave) {
+		this.entityManager.merge(ave);
+
+	}
+
+	@Override
+	public void eliminarAve(String cdave) {
+		TontAve ave = this.find(cdave);
+		this.entityManager.remove(ave);
+	}
+
+	public TontAve find(String cdave) {
+		return this.entityManager.find(TontAve.class, cdave);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<TontAve> listarAves() {
+		Query query = entityManager.createQuery("from TontAve");
+		List<TontAve> listaAves = (List<TontAve>) query.getResultList();
+		return listaAves;
+	}
+
+	@Override
+	public TontAve obtenerAve(String cdave) {
+		Query query = entityManager.createNamedQuery("TontAve.findByCdave");
+		TontAve ave = (TontAve) query.setParameter("cdave", cdave).getResultList().get(0);
+		return ave;
+	}
+
+}

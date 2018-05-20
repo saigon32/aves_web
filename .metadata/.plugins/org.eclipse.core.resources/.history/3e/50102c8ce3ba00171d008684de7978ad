@@ -1,0 +1,14 @@
+iasAvesWeb.registerCtrl('consultaAves', [ '$scope', '$http', '$rootScope',
+		function($scope, $http, $rootScope) {
+			// funGetDatosFooter($scope);
+			// insertarTurno($scope, $http, $rootScope);
+			// configurarDatePickers();
+			// eventoDatePickers($scope, $http, $rootScope);
+			// buscarGrupoHorarioTerminal($scope, $http);
+			// cargarGrupoManual($scope, $http, $rootScope);
+			// eventCheckearTodo($scope);
+		} ]);
+
+function holaCargue() {
+	alert("ENTREEE");
+}

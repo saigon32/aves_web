@@ -1,0 +1,13 @@
+//iasAvesWeb.registerCtrl('consultaAves', [ '$scope', '$http', '$rootScope',
+//		function($scope, $http, $rootScope) {
+//		} ]);
+//angular.module('iasAvesWeb', []).controller('consultaAves',
+//		[ '$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+//
+//		} ]);
+
+var app = angular.module('iasAvesWeb', []);
+app.controller('consultaAves', function($scope) {
+	$scope.firstName = "John";
+	$scope.lastName = "Doe";
+});

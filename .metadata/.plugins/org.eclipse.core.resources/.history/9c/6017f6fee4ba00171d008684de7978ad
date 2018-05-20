@@ -1,0 +1,3 @@
+iasAvesWeb.registerCtrl('consultaAves', [ '$scope', '$http', '$rootScope',
+		function($scope, $http, $rootScope) {
+		} ]);

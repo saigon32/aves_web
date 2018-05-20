@@ -1,0 +1,45 @@
+package ias.aves.web.controladores;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/springservicecontroller")
+public class SpringServiceController {
+	@RequestMapping(value = "/getGreeting/{name}", method = RequestMethod.GET, produces = "application/json")
+	public String getGreeting(@PathVariable String name) {
+		String result = "Hello " + name;
+		return result;
+	}
+
+	@RequestMapping(value = "/mapListarAves", method = RequestMethod.GET, produces = "application/json")
+	public Map<String, String> mapListarAves() {
+		Map<String, String> listaAves = new HashMap<String, String>();
+		listaAves.put("p1", "mirla");
+		listaAves.put("p2", "pinche");
+		listaAves.put("p3", "barranquero");
+		listaAves.put("p4", "sinsonte");
+		listaAves.put("p5", "toche");
+		listaAves.put("p6", "garrapatero");
+		return listaAves;
+	}
+
+	@RequestMapping(value = "/listListarAves", method = RequestMethod.GET, produces = "application/json")
+	public List<String> listListarAves() {
+		List<String> listaAves = new ArrayList()<String>();
+		listaAves.add("p1", "mirla");
+		listaAves.add("p2", "pinche");
+		listaAves.add("p3", "barranquero");
+		listaAves.add("p4", "sinsonte");
+		listaAves.add("p5", "toche");
+		listaAves.add("p6", "garrapatero");
+		return listaAves;
+	}
+}

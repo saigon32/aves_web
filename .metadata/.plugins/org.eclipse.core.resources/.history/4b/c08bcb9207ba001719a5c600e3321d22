@@ -1,0 +1,17 @@
+package ias.aves.web.dao;
+
+public interface IAveDao {
+
+	// public void ingresarProveedor(Proveedor proveedor);
+	//
+	// public void actualizarProveedor(Proveedor proveedor);
+	//
+	// public void eliminarProveedor(String idprov);
+	//
+	// public List<Proveedor> listarProveedores();
+	//
+	// public Proveedor obtenerProveedor(String idprov);
+	//
+	// public Proveedor find(String idprov);
+
+}

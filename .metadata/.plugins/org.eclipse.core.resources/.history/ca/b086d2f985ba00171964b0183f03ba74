@@ -1,0 +1,48 @@
+package ias.aves.web.dao.implementacion;
+
+import ias.aves.web.dao.IAveDao.IAveDao;
+
+//@Transactional
+public class AveDao implements IAveDao {
+
+	// private EntityManager entityManager;
+	//
+	// @PersistenceContext
+	// public void setEntityManager(EntityManager entityManager) {
+	// this.entityManager = entityManager;
+	// }
+	//
+	// public void actualizarProveedor(Proveedor proveedor) {
+	// this.entityManager.merge(proveedor);
+	//
+	// }
+	//
+	// public void eliminarProveedor(String idprov) {
+	// Proveedor proveedor = this.find(idprov);
+	// this.entityManager.remove(proveedor);
+	// }
+	//
+	// public Proveedor find(String idprov) {
+	// return this.entityManager.find(Proveedor.class, idprov);
+	// }
+	//
+	// public void ingresarProveedor(Proveedor proveedor) {
+	// this.entityManager.persist(proveedor);
+	// }
+	//
+	// @SuppressWarnings("unchecked")
+	// public List<Proveedor> listarProveedores() {
+	// Query query = entityManager.createQuery("from Proveedor");
+	// List<Proveedor> listaProveedores = (List<Proveedor>) query
+	// .getResultList();
+	// return listaProveedores;
+	// }
+	//
+	// public Proveedor obtenerProveedor(String idprov) {
+	// Query query = entityManager.createNamedQuery("Proveedor.findByIdprov");
+	// Proveedor proveedor = (Proveedor) query.setParameter("idprov", idprov)
+	// .getResultList().get(0);
+	// return proveedor;
+	// }
+
+}

@@ -1,0 +1,78 @@
+package ias.aves.web.controladores;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.AbstractController;
+
+import ias.aves.web.dao.IAveDao;
+import ias.aves.web.modelo.TontAve;
+
+@RestController
+@RequestMapping("/AvesControlador")
+public class AvesControlador extends AbstractController {
+
+	@Autowired
+	IAveDao aveDao;
+
+	@RequestMapping(value = "/listarAves", method = RequestMethod.GET, produces = "application/json")
+	public List<TontAve> listarAves() {
+		return aveDao.listarAves();
+	}
+
+	@Transactional
+	@RequestMapping(value = "/ingresarAve", method = RequestMethod.PUT)
+	public void ingresarAve(@RequestParam(value = "cdave", required = true) String cdave,
+			@RequestParam(value = "dsnombreComun", required = true) String dsnombreComun,
+			@RequestParam(value = "dsnombreCientifico", required = true) String dsnombreCientifico) throws Exception {
+		TontAve tontAve = new TontAve();
+		tontAve.setCdave(cdave);
+		tontAve.setDsnombreComun(dsnombreComun);
+		tontAve.setDsnombreCientifico(dsnombreCientifico);
+		aveDao.ingresarAve(tontAve);
+	}
+
+	@Transactional
+	@RequestMapping(value = "/actualizarAve", method = RequestMethod.PUT)
+	public void actualizarAve(@RequestParam(value = "cdave", required = true) String cdave,
+			@RequestParam(value = "dsnombreComun", required = true) String dsnombreComun,
+			@RequestParam(value = "dsnombreCientifico", required = true) String dsnombreCientifico) throws Exception {
+		TontAve tontAve = new TontAve();
+		tontAve.setCdave(cdave);
+		tontAve.setDsnombreComun(dsnombreComun);
+		tontAve.setDsnombreCientifico(dsnombreCientifico);
+		aveDao.actualizarAve(tontAve);
+	}
+
+	@Transactional
+	@RequestMapping(value = "/eliminarAve", method = RequestMethod.PUT)
+	public void eliminarAve(@RequestParam(value = "cdave", required = true) String cdave) throws Exception {
+		aveDao.eliminarAve(cdave);
+	}
+
+	@RequestMapping("/index")
+	public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
+		// return "index.jsp";
+		ModelAndView model = new ModelAndView("index.jsp");
+		return model;
+	}
+
+	// @RequestMapping("/index")
+	// public ModelAndView handleRequestInternal(HttpServletRequest request,
+	// HttpServletResponse response)
+	// throws Exception {
+	// ModelAndView model = new ModelAndView("index");
+	// System.err.println("ModelAndView handleRequestInternal");
+	// return model;
+	// }
+
+}

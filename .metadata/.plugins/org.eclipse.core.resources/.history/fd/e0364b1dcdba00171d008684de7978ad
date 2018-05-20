@@ -1,0 +1,18 @@
+package ias.aves.web.controladores;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class IndexControlador {
+
+	@RequestMapping("/index")
+	public ModelAndView helloWorld() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("hello");
+		// modelAndView.addObject("message", "Hello World..!!! I'm live!!");
+		return modelAndView;
+	}
+
+}

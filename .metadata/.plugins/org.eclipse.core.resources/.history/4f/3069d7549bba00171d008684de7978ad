@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<Context path="/inventarioWeb" docBase="inventarioWeb" debug="5"-->
+<!--	reloadable="true" crossContext="true">-->
+<!--	<Resource name="jdbc/dbinvenweb" auth="Container" type="javax.sql.DataSource"-->
+<!--		username="dba" password="sql" maxActive="100" maxIdle="30" maxWait="10000"-->
+<!--		driverClassName="com.sybase.jdbc2.jdbc.SybDriver" url="jdbc:sybase:Tds:thunder:2638/dbinvenweb" />-->
+<!--</Context>-->
+<!-- <Context path="/inventarioWeb" docBase="inventarioWeb" debug="5" -->
+<!-- 	reloadable="true" crossContext="true"> -->
+<!-- 	<Resource name="jdbc/dbinvenweb" auth="Container" type="javax.sql.DataSource" -->
+<!-- 		username="sainvora" password="sainvora" maxActive="100" maxIdle="30" maxWait="10000" -->
+<!-- 		driverClassName="oracle.jdbc.driver.OracleDriver" url="jdbc:oracle:thin:@192.168.1.4:1521:dbinvora" /> -->
+<!-- </Context> -->
+<Context path="/inventarioWeb" docBase="inventarioWeb" debug="5"
+	reloadable="true" crossContext="true">
+	<Resource name="jdbc/dbinvenweb" auth="Container" type="javax.sql.DataSource"
+		username="root" password="admin" maxActive="100" maxIdle="30" maxWait="10000"
+		driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/inventario" />
+</Context>
