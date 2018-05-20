@@ -5,7 +5,7 @@ import java.util.List;
 import ias.aves.web.modelo.TontAve;
 /**
  * 
- * @author User
+ * @author User:jajurado
  *
  */
 public interface IAveDao {
