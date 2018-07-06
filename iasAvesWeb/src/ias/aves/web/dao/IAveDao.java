@@ -6,7 +6,7 @@ import ias.aves.web.modelo.TontAve;
 /**
  * 
  * 
- * @author User:Andres Jurado, Julio 2018
+ * @author User:Andres Jurado, 5 Julio 2018.
  *
  */
 public interface IAveDao {
