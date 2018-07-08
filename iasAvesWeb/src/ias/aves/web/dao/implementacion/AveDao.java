@@ -65,7 +65,8 @@ public class AveDao implements IAveDao {
 			query.setParameter("dsnombreCientifico", "%" + dsnombreCientifico + "%");
 			listaAves = (List<TontAve>) query.getResultList();
 		} catch (Exception exception) {
-			System.err.println("Error metodo listarAvesNombre: " + exception.getLocalizedMessage());
+			System.err.println("Error 1 metodo listarAvesNombre: " + exception.getLocalizedMessage());
+			System.err.println("Error 2 metodo listarAvesNombre: " + exception.getLocalizedMessage());
 			throw exception;
 		}
 		return listaAves;
